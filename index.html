@@ -6,87 +6,97 @@
   <title>The Augusta Experience &mdash; Masters Sunday 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green:       #006747;
-      --green-dark:  #004d35;
-      --green-deep:  #002d1f;
-      --gold:        #c9a84c;
-      --gold-light:  #e8c97a;
-      --cream:       #f5f0e6;
-      --cream-dark:  #ede5d4;
-      --text:        #1c1c1c;
-      --text-light:  #4a4a4a;
-      --serif:       'Playfair Display', Georgia, serif;
-      --body:        'EB Garamond', Georgia, serif;
+      --green:        #006747;
+      --green-mid:    #107d57;
+      --green-dark:   #1c4932;
+      --green-deep:   #0d2e1e;
+      --yellow:       #fce300;
+      --charcoal:     #25282a;
+      --gray:         #6b6f73;
+      --gray-light:   #d9d9d6;
+      --bg:           #f7f4f0;
+      --bg-light:     #fff;
+      --serif:        'IBM Plex Serif', Georgia, serif;
+      --sans:         'IBM Plex Sans', Arial, Helvetica, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--cream);
-      color: var(--text);
-      font-family: var(--body);
-      font-size: 18px;
+      background: var(--bg);
+      color: var(--charcoal);
+      font-family: var(--sans);
+      font-size: 16px;
       line-height: 1.7;
     }
 
-    /* ── Top Banner ── */
-    .top-banner {
-      background: var(--green-deep);
-      color: var(--gold-light);
-      font-family: var(--serif);
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
+    /* ── Top utility bar ── */
+    .utility-bar {
+      background: var(--charcoal);
+      color: var(--gray-light);
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-align: center;
-      padding: 8px 20px;
+      padding: 7px 20px;
     }
 
     /* ── Header ── */
     header {
       background: var(--green);
-      padding: 48px 20px 40px;
-      text-align: center;
-      border-bottom: 4px solid var(--gold);
-      position: relative;
-    }
-
-    header::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 2px;
-      background: var(--gold);
-      margin: 20px auto 0;
-    }
-
-    .shield {
-      width: 72px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       height: 72px;
-      margin: 0 auto 20px;
-      display: block;
+      border-bottom: 4px solid var(--yellow);
     }
 
-    header h1 {
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-emblem {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
       font-family: var(--serif);
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight: 700;
+      font-size: 1.15rem;
+      font-weight: 600;
       color: #fff;
       letter-spacing: 0.04em;
-      line-height: 1.15;
+      line-height: 1.2;
     }
 
-    header .subtitle {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: var(--gold-light);
-      margin-top: 10px;
-      letter-spacing: 0.06em;
+    .logo-text span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      font-family: var(--sans);
+    }
+
+    .header-date {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
     }
 
     /* ── Nav ── */
@@ -95,24 +105,24 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0;
-      border-bottom: 2px solid var(--gold);
     }
 
     nav a {
-      color: var(--cream);
-      font-family: var(--serif);
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.8);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 14px 22px;
-      transition: color 0.2s, background 0.2s;
+      padding: 14px 20px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
     }
 
     nav a:hover {
-      color: var(--gold-light);
-      background: rgba(255,255,255,0.05);
+      color: var(--yellow);
+      border-bottom-color: var(--yellow);
     }
 
     /* ── Hero ── */
@@ -120,7 +130,7 @@
       background: var(--green-dark);
       color: #fff;
       text-align: center;
-      padding: 80px 20px;
+      padding: 88px 24px 80px;
       position: relative;
       overflow: hidden;
     }
@@ -129,304 +139,356 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, rgba(201,168,76,0.12) 0%, transparent 70%);
+      background: linear-gradient(180deg, rgba(0,103,71,0.25) 0%, transparent 100%);
       pointer-events: none;
     }
 
     .hero-eyebrow {
-      font-family: var(--serif);
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--yellow);
       margin-bottom: 20px;
     }
 
-    .hero h2 {
+    .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
       font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 24px;
+      line-height: 1.08;
+      margin-bottom: 20px;
     }
 
-    .hero p {
-      font-family: var(--body);
+    .hero-tagline {
+      font-family: var(--serif);
       font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--cream-dark);
-      max-width: 560px;
-      margin: 0 auto 32px;
+      font-weight: 300;
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      margin: 0 auto 36px;
     }
 
-    .gold-rule {
-      width: 80px;
-      height: 2px;
-      background: var(--gold);
+    .yellow-rule {
+      width: 60px;
+      height: 3px;
+      background: var(--yellow);
       margin: 0 auto;
     }
 
-    /* ── Event Details Strip ── */
+    /* ── Details strip ── */
     .details-strip {
-      background: var(--gold);
+      background: var(--yellow);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0;
     }
 
     .detail-item {
-      padding: 22px 40px;
+      padding: 20px 36px;
       text-align: center;
-      border-right: 1px solid rgba(0,0,0,0.12);
+      border-right: 1px solid rgba(0,0,0,0.1);
     }
 
     .detail-item:last-child { border-right: none; }
 
     .detail-label {
-      font-family: var(--serif);
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--green-dark);
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .detail-value {
       font-family: var(--serif);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--green-deep);
     }
 
-    /* ── Sections ── */
-    section {
-      max-width: 860px;
+    /* ── Page sections ── */
+    .section-wrap {
+      max-width: 900px;
       margin: 0 auto;
       padding: 72px 24px;
     }
 
-    section + section {
-      border-top: 1px solid var(--cream-dark);
+    .section-wrap + .section-wrap,
+    .alt-section + .section-wrap,
+    .section-wrap + .alt-section {
+      border-top: 1px solid var(--gray-light);
     }
 
-    .section-eyebrow {
-      font-family: var(--serif);
-      font-size: 0.7rem;
-      letter-spacing: 0.28em;
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 12px;
+      color: var(--green-mid);
+      margin-bottom: 10px;
     }
 
-    section h2 {
+    h2.section-title {
       font-family: var(--serif);
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
       font-weight: 700;
       color: var(--green-dark);
-      margin-bottom: 8px;
-      line-height: 1.2;
+      line-height: 1.15;
+      margin-bottom: 16px;
     }
 
-    .section-rule {
-      width: 50px;
-      height: 2px;
-      background: var(--gold);
-      margin: 16px 0 28px;
+    .title-rule {
+      width: 44px;
+      height: 3px;
+      background: var(--yellow);
+      margin-bottom: 28px;
     }
 
-    section p {
-      color: var(--text-light);
+    .body-text {
+      font-family: var(--sans);
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.75;
       margin-bottom: 1em;
-      font-size: 1.05rem;
     }
 
-    /* ── Patron Guidelines ── */
+    .body-text:last-child { margin-bottom: 0; }
+
+    /* ── Patron guidelines grid ── */
     .guidelines-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--gray-light);
+      border: 1px solid var(--gray-light);
+      margin-top: 36px;
     }
 
     .guideline-card {
-      background: #fff;
-      border: 1px solid var(--cream-dark);
-      border-top: 3px solid var(--green);
-      padding: 24px 26px;
+      background: var(--bg-light);
+      padding: 28px 28px 24px;
     }
 
     .guideline-card h3 {
-      font-family: var(--serif);
-      font-size: 0.8rem;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--green);
       margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--yellow);
+      display: inline-block;
     }
 
     .guideline-card p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      margin: 0;
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.65;
     }
 
-    /* ── Menu ── */
-    .menu-section { background: var(--green-deep); }
-    .menu-section-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 72px 24px;
+    /* ── Menu (dark section) ── */
+    .alt-section {
+      background: var(--green-deep);
     }
 
-    .menu-section .section-eyebrow { color: var(--gold); }
-    .menu-section h2 { color: #fff; }
-    .menu-section .section-rule { background: var(--gold); }
+    .alt-section .eyebrow { color: var(--yellow); }
+    .alt-section h2.section-title { color: #fff; }
+    .alt-section .title-rule { background: var(--yellow); }
+    .alt-section .body-text { color: rgba(255,255,255,0.55); font-style: italic; }
 
     .menu-columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
-      margin-top: 36px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+      margin-top: 40px;
     }
 
     .menu-category h3 {
-      font-family: var(--serif);
-      font-size: 0.72rem;
-      letter-spacing: 0.25em;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--gold);
-      border-bottom: 1px solid rgba(201,168,76,0.3);
-      padding-bottom: 8px;
-      margin-bottom: 14px;
+      color: var(--yellow);
+      border-bottom: 1px solid rgba(252,227,0,0.25);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
     }
 
-    .menu-category ul {
-      list-style: none;
-      padding: 0;
-    }
+    .menu-category ul { list-style: none; }
 
     .menu-category li {
-      font-family: var(--body);
-      font-size: 1rem;
-      color: var(--cream);
-      padding: 6px 0;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      padding: 7px 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      gap: 12px;
     }
 
-    .menu-category li .price {
+    .price {
       font-family: var(--serif);
-      font-size: 0.85rem;
-      color: var(--gold);
-      margin-left: 12px;
+      font-size: 0.82rem;
+      color: var(--yellow);
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .menu-note {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 0.85rem;
-      color: rgba(245,240,230,0.55);
-      margin-top: 32px;
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 36px;
       text-align: center;
     }
 
     /* ── Activities ── */
-    .activities-list {
-      margin-top: 32px;
+    .activity-list {
+      margin-top: 36px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
     }
 
     .activity-item {
       display: flex;
-      gap: 20px;
+      gap: 24px;
       align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--gray-light);
     }
 
-    .activity-number {
+    .activity-item:last-child { border-bottom: none; }
+
+    .activity-num {
       font-family: var(--serif);
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--yellow);
       line-height: 1;
-      min-width: 36px;
+      min-width: 40px;
     }
 
-    .activity-item h3 {
+    .activity-body h3 {
       font-family: var(--serif);
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: var(--green-dark);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
-    .activity-item p {
+    .activity-body p {
+      font-size: 0.93rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ── Dress code ── */
+    .dress-table {
+      margin-top: 32px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .dress-table tr {
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .dress-table tr:last-child { border-bottom: none; }
+
+    .dress-table td {
+      padding: 16px 12px;
       font-size: 0.95rem;
-      margin: 0;
+      vertical-align: top;
     }
 
-    /* ── Dress Code ── */
-    .dress-code-box {
-      background: #fff;
-      border: 1px solid var(--cream-dark);
-      border-left: 4px solid var(--green);
-      padding: 32px 36px;
-      margin-top: 28px;
+    .dress-table td:first-child {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      white-space: nowrap;
+      padding-right: 28px;
+      width: 140px;
     }
 
-    .dress-code-box p {
-      margin: 0 0 0.5em;
+    .dress-table td:last-child {
+      color: var(--gray);
     }
-
-    .dress-code-box p:last-child { margin: 0; }
 
     /* ── Footer ── */
     footer {
-      background: var(--green-deep);
-      color: rgba(245,240,230,0.5);
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.4);
       text-align: center;
-      font-family: var(--serif);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      padding: 32px 20px;
-      border-top: 3px solid var(--gold);
+      padding: 40px 24px;
+      border-top: 4px solid var(--green);
     }
 
-    footer .footer-title {
-      color: var(--gold-light);
-      font-size: 1rem;
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
       font-style: italic;
+      color: rgba(255,255,255,0.75);
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: var(--yellow);
+      text-decoration: none;
     }
 
     /* ── Responsive ── */
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
+      header { height: auto; padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
+      .header-date { display: none; }
       .details-strip { flex-direction: column; }
-      .detail-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.12); }
-      nav a { padding: 12px 14px; font-size: 0.7rem; }
+      .detail-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
+      nav a { padding: 11px 14px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-banner">The Linford House &nbsp;&bull;&nbsp; Salem, Utah &nbsp;&bull;&nbsp; April 11, 2027</div>
+  <div class="utility-bar">The Augusta Experience &nbsp;&mdash;&nbsp; Salem, Utah &nbsp;&mdash;&nbsp; April 11, 2027</div>
 
   <header>
-    <!-- Shield SVG inspired by Augusta's emblem shape -->
-    <svg class="shield" viewBox="0 0 72 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M36 4 L68 16 L68 44 C68 62 36 76 36 76 C36 76 4 62 4 44 L4 16 Z" fill="#004d35" stroke="#c9a84c" stroke-width="2.5"/>
-      <path d="M36 14 L59 23 L59 43 C59 57 36 68 36 68 C36 68 13 57 13 43 L13 23 Z" fill="none" stroke="#c9a84c" stroke-width="1"/>
-      <text x="36" y="46" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="22" font-weight="700" fill="#c9a84c">A</text>
-    </svg>
-    <h1>The Augusta Experience</h1>
-    <p class="subtitle">A Tradition Unlike Any Other &mdash; In Our Own Backyard</p>
+    <div class="header-logo">
+      <svg class="logo-emblem" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M22 3L41 11V26C41 36.5 22 41 22 41C22 41 3 36.5 3 26V11Z" fill="#1c4932" stroke="#fce300" stroke-width="1.5"/>
+        <path d="M22 9L35 15V25C35 32.5 22 37 22 37C22 37 9 32.5 9 25V15Z" fill="none" stroke="#fce300" stroke-width="0.75" stroke-opacity="0.6"/>
+        <text x="22" y="29" text-anchor="middle" font-family="'IBM Plex Serif', Georgia, serif" font-size="16" font-weight="700" fill="#fce300">A</text>
+      </svg>
+      <div class="logo-text">
+        The Augusta Experience
+        <span>Masters Sunday &bull; 2027</span>
+      </div>
+    </div>
+    <div class="header-date">Sunday &bull; April 11, 2027</div>
   </header>
 
   <nav>
@@ -438,10 +500,10 @@
   </nav>
 
   <div class="hero">
-    <p class="hero-eyebrow">Sunday &bull; April 11, 2027</p>
-    <h2>Masters Sunday<br/>at the Linford House</h2>
-    <p>Come as a patron. Leave as a champion. The gates open at noon.</p>
-    <div class="gold-rule"></div>
+    <p class="hero-eyebrow">First Annual &bull; 2027</p>
+    <h1>Masters Sunday<br/>at the Linford House</h1>
+    <p class="hero-tagline">A Tradition Unlike Any Other &mdash; In Our Own Backyard</p>
+    <div class="yellow-rule"></div>
   </div>
 
   <div class="details-strip">
@@ -463,20 +525,20 @@
     </div>
   </div>
 
-  <section id="the-event">
-    <p class="section-eyebrow">Welcome</p>
-    <h2>A Tradition in the Making</h2>
-    <div class="section-rule"></div>
-    <p>You are cordially invited to the inaugural Augusta Experience &mdash; an immersive Masters Sunday gathering at the Linford home. Every detail has been curated to honor the traditions of Augusta National: the atmosphere, the cuisine, the reverence, and the glory of the final round.</p>
-    <p>Guests are reminded that they are <em>patrons</em> of this occasion &mdash; not merely attendees. Conduct befitting the grounds is expected and appreciated at all times.</p>
-    <p>The first annual. A tradition unlike any other.</p>
-  </section>
+  <div class="section-wrap" id="the-event">
+    <p class="eyebrow">Welcome</p>
+    <h2 class="section-title">A Tradition in the Making</h2>
+    <div class="title-rule"></div>
+    <p class="body-text">You are cordially invited to the inaugural Augusta Experience &mdash; an immersive Masters Sunday gathering at the Linford home. Every detail has been curated to honour the traditions of Augusta National: the atmosphere, the cuisine, the reverence, and the glory of the final round.</p>
+    <p class="body-text">Guests are reminded that they are <em>patrons</em> of this occasion &mdash; not merely attendees. Conduct befitting the grounds is expected and appreciated at all times.</p>
+    <p class="body-text">The first annual. A tradition unlike any other.</p>
+  </div>
 
-  <section id="patron-guidelines">
-    <p class="section-eyebrow">The Course of Conduct</p>
-    <h2>Patron Guidelines</h2>
-    <div class="section-rule"></div>
-    <p>Augusta National has maintained a standard of conduct unmatched in sport. We ask that all patrons honor these same traditions within our grounds.</p>
+  <div class="section-wrap" id="patron-guidelines">
+    <p class="eyebrow">The Course of Conduct</p>
+    <h2 class="section-title">Patron Guidelines</h2>
+    <div class="title-rule"></div>
+    <p class="body-text">Augusta National has maintained a standard of conduct unmatched in sport. We ask that all patrons honour these same traditions within our grounds.</p>
     <div class="guidelines-grid">
       <div class="guideline-card">
         <h3>Mobile Devices</h3>
@@ -488,7 +550,7 @@
       </div>
       <div class="guideline-card">
         <h3>Mode of Address</h3>
-        <p>All guests are to be addressed and referred to as <em>Patrons</em>. The term &ldquo;fans&rdquo; has no place on these grounds.</p>
+        <p>All guests are to be addressed as <em>Patrons</em>. The term &ldquo;fans&rdquo; has no place on these grounds.</p>
       </div>
       <div class="guideline-card">
         <h3>Outside Provisions</h3>
@@ -500,18 +562,17 @@
       </div>
       <div class="guideline-card">
         <h3>The Leaderboard</h3>
-        <p>An official tournament leaderboard will be maintained throughout the day. Patrons are encouraged to follow the action and update their brackets accordingly.</p>
+        <p>An official leaderboard will be maintained throughout the day. Patrons are encouraged to follow the action and update their brackets.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <div class="menu-section">
-    <div class="menu-section-inner" id="menu">
-      <p class="section-eyebrow">Provisions</p>
-      <h2>The Augusta Menu</h2>
-      <div class="section-rule"></div>
-      <p style="color: var(--cream-dark); font-style: italic; font-size: 1rem;">Priced in the tradition of Augusta National. Hospitality is provided &mdash; all provisions are complimentary.</p>
-
+  <div class="alt-section">
+    <div class="section-wrap" id="menu">
+      <p class="eyebrow">Provisions</p>
+      <h2 class="section-title">The Augusta Menu</h2>
+      <div class="title-rule"></div>
+      <p class="body-text">Priced in the proud tradition of Augusta National. All provisions are complimentary &mdash; menu cards are presented for the full experience.</p>
       <div class="menu-columns">
         <div class="menu-category">
           <h3>Sandwiches</h3>
@@ -543,70 +604,84 @@
           </ul>
         </div>
       </div>
-      <p class="menu-note">All items complimentary. Menu cards provided for the full Augusta experience.</p>
+      <p class="menu-note">All items complimentary. Prices displayed in honour of Augusta tradition.</p>
     </div>
   </div>
 
-  <section id="activities">
-    <p class="section-eyebrow">The Competitions</p>
-    <h2>Activities &amp; Events</h2>
-    <div class="section-rule"></div>
-    <p>A full program of competition awaits. The patron who accumulates the greatest distinction across the day&rsquo;s events shall be awarded the honour of donning the Green Jacket.</p>
-    <div class="activities-list">
+  <div class="section-wrap" id="activities">
+    <p class="eyebrow">The Competitions</p>
+    <h2 class="section-title">Activities &amp; Events</h2>
+    <div class="title-rule"></div>
+    <p class="body-text">A full programme of competition awaits. The patron who accumulates the greatest distinction across the day&rsquo;s events shall be awarded the honour of donning the Green Jacket.</p>
+    <div class="activity-list">
       <div class="activity-item">
-        <span class="activity-number">I</span>
-        <div>
+        <span class="activity-num">I</span>
+        <div class="activity-body">
           <h3>The Par 3 Contest</h3>
-          <p>Pre-round competition in the backyard. Patrons of all ages welcome. Closest to the pin earns the opening day honours.</p>
+          <p>Pre-round competition in the backyard. Patrons of all ages welcome. Closest to the pin earns opening-day honours.</p>
         </div>
       </div>
       <div class="activity-item">
-        <span class="activity-number">II</span>
-        <div>
+        <span class="activity-num">II</span>
+        <div class="activity-body">
           <h3>The Masters Pool</h3>
           <p>Select your champion before the first shot is struck. The patron whose selection claims the Green Jacket claims one of their own.</p>
         </div>
       </div>
       <div class="activity-item">
-        <span class="activity-number">III</span>
-        <div>
+        <span class="activity-num">III</span>
+        <div class="activity-body">
           <h3>Putting Championship</h3>
-          <p>The indoor putting green is open throughout the day. Competition format to be announced. Pride is on the line.</p>
+          <p>The indoor putting green is open throughout the day. Competition format announced upon arrival. Pride is on the line.</p>
         </div>
       </div>
       <div class="activity-item">
-        <span class="activity-number">IV</span>
-        <div>
+        <span class="activity-num">IV</span>
+        <div class="activity-body">
           <h3>Masters Trivia</h3>
           <p>Test your knowledge of Augusta National&rsquo;s history, past champions, and the traditions that define this tournament. Conducted during commercial intervals.</p>
         </div>
       </div>
       <div class="activity-item">
-        <span class="activity-number">V</span>
-        <div>
+        <span class="activity-num">V</span>
+        <div class="activity-body">
           <h3>The Green Jacket Ceremony</h3>
-          <p>At the conclusion of the day&rsquo;s proceedings, the day&rsquo;s champion shall be recognised in an official Green Jacket presentation ceremony.</p>
+          <p>At the conclusion of the day&rsquo;s proceedings, the champion shall be recognised in an official Green Jacket presentation ceremony.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="dress-code">
-    <p class="section-eyebrow">Presentation</p>
-    <h2>Dress Code</h2>
-    <div class="section-rule"></div>
-    <p>Augusta National has always maintained that presentation reflects the prestige of the occasion. We ask that our patrons honour that tradition.</p>
-    <div class="dress-code-box">
-      <p><strong>Gentlemen:</strong> Collared shirts are required. Neat, smart casual attire is appropriate. Hats, where worn, are to face forward.</p>
-      <p><strong>Ladies:</strong> Smart casual. You are, as always, the standard by which all others are measured.</p>
-      <p><strong>Young Patrons:</strong> Comfortable and presentable. They set the tone more than they know.</p>
-    </div>
-  </section>
+  <div class="section-wrap" id="dress-code">
+    <p class="eyebrow">Presentation</p>
+    <h2 class="section-title">Dress Code</h2>
+    <div class="title-rule"></div>
+    <p class="body-text">Augusta National has always maintained that presentation reflects the prestige of the occasion. We ask that our patrons honour that tradition.</p>
+    <table class="dress-table">
+      <tbody>
+        <tr>
+          <td>Gentlemen</td>
+          <td>Collared shirts are required. Smart casual attire is appropriate. Hats, where worn, are to face forward.</td>
+        </tr>
+        <tr>
+          <td>Ladies</td>
+          <td>Smart casual. You are, as always, the standard by which all others are measured.</td>
+        </tr>
+        <tr>
+          <td>Young Patrons</td>
+          <td>Comfortable and presentable. They set the tone more than they know.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <footer>
-    <span class="footer-title">&ldquo;A Tradition Unlike Any Other&rdquo;</span>
-    &copy; 2027 The Augusta Experience &bull; The Linford House &bull; Salem, Utah<br/>
-    <span style="font-size:0.65rem; margin-top:6px; display:block; opacity:0.5;">This is an unofficial fan celebration and is not affiliated with Augusta National Golf Club or the Masters Tournament.</span>
+    <span class="footer-logo">&ldquo;A Tradition Unlike Any Other&rdquo;</span>
+    <p>
+      &copy; 2027 The Augusta Experience &bull; The Linford House &bull; Salem, Utah<br/>
+      <a href="https://docs.google.com/document/d/11RLtdFL4-Gwe2z_XutONpL1kIwANbWdKi0T5Hvp074Y">Planning Document</a>
+    </p>
+    <p style="margin-top:12px; font-size:0.6rem; opacity:0.4;">This is an unofficial fan celebration and is not affiliated with Augusta National Golf Club or the Masters Tournament.</p>
   </footer>
 
 </body>
